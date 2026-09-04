@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>José Garibaldi | Galería, Arte y Decoración</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Popup de 15% Descuento -->
+    <div id="popupApertura" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-btn" onclick="cerrarPopup()">X</button>
+            <h2>¡Apertura Especial José Garibaldi!</h2>
+            <p>Déjanos tu correo y recibe automáticamente un <strong>15% DE DESCUENTO</strong> en tu primera obra o escultura de arte.</p>
+            <input type="email" placeholder="ejemplo@correo.com">
+            <button class="btn-suscribe" onclick="cerrarPopup()">¡Quiero mi 15% Off!</button>
+        </div>
+    </div>
+
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="logo">JOSÉ GARIBALDI</div>
+        <ul class="nav-links">
+            <li><a href="#">Arte y Cuadros</a></li>
+            <li><a href="#">Esculturas</a></li>
+            <li><a href="#">Colección Alta Gana</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header Promocional -->
+    <header class="hero">
+        <div class="hero-text">
+            <h1>Arte que transforma espacios.</h1>
+            <p>Piezas exclusivas con envíos de alta seguridad.</p>
+        </div>
+    </header>
+
+    <!-- Grid de 15 Productos (Aquí se insertará el Javascript) -->
+    <main>
+        <h2 class="title-section">Nuestro Catálogo Exclusivo</h2>
+        <div id="gallery" class="gallery-container"></div>
+    </main>
+
+    <!-- Políticas de Compra High-Ticket -->
+    <footer>
+        <div class="footer-columns">
+            <div class="footer-col">
+                <h3>Pagos a Tu Medida</h3>
+                <p>Las obras de arte y muebles son grandes decisiones. Paga desde 3 hasta 12 meses en nuestra web (según producto). Hacemos la belleza más accesible.</p>
+            </div>
+            <div class="footer-col" style="background:#f4f4f4; padding: 15px; border-radius: 8px;">
+                <h3>🔴 POLÍTICA DE SEGURO POR DAÑO FRÁGIL</h3>
+                <p><strong>Nuestros espejos, estatuas y cuadros viajan súper seguros.</strong> Si por motivos de transporte tu espejo llega roto: <br><br><i> Toma un VIDEO ininterrumpido abriendo la caja al momento de recibirlo. Si el producto se encuentra dañado desde dentro del embalaje, **te enviaremos una pieza nueva sin ningún costo ni preguntas.**</i></p>
+            </div>
+            <div class="footer-col">
+                <h3>Síguenos en Redes</h3>
+                <p>Inspiración de decoración: Instagram (@josegaribaldi) & Pinterest.<br>Detrás de escena, empaque y taller en: TikTok.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 José Garibaldi. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Firebase (Instalación modular que haremos más tarde para guardar clientes y leer BD) -->
+    <!-- <script type="module" src="firebase.js"></script> -->
+    <script src="app.js"></script>
+</body>
+</html>

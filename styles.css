@@ -1,0 +1,69 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333; background-color: #FAFAFA;
+}
+
+/* Tipografía de la marca (Elegante y seria) */
+h1, h2, h3, .logo { font-family: 'Playfair Display', serif; }
+
+/* Barra superior */
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 40px; background-color: #111; color: #fff;
+}
+.logo { font-size: 26px; font-weight: bold; letter-spacing: 2px; }
+.nav-links { display: flex; list-style: none; gap: 20px; }
+.nav-links a { color: #fff; text-decoration: none; text-transform: uppercase; font-size: 14px;}
+
+/* Header Hero */
+.hero {
+    height: 350px; display: flex; align-items: center; justify-content: center;
+    background: url('https://images.unsplash.com/photo-1543884175-9c8a0058b761?w=1600&h=400&fit=crop') center/cover;
+    color: white; text-align: center;
+}
+.hero-text { background: rgba(0,0,0,0.6); padding: 40px; border-radius: 8px;}
+.hero-text h1 { font-size: 40px; margin-bottom: 10px; }
+
+/* Grilla Productos */
+.title-section { text-align: center; margin: 40px 0 20px; font-size: 32px;}
+.gallery-container {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px; padding: 20px 50px; max-width: 1300px; margin: auto;
+}
+.product-card {
+    background: #fff; padding: 15px; border-radius: 6px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s; position: relative;
+}
+.product-card:hover { transform: translateY(-5px); }
+.product-card img { width: 100%; border-radius: 4px; }
+.badge-fragil { position: absolute; top: 20px; left: 20px; background: red; color: white; padding: 4px 8px; font-size: 10px; font-weight: bold; border-radius: 3px; }
+.category { font-size: 12px; color: #888; text-transform: uppercase; margin-bottom: 8px;}
+.price { font-size: 18px; margin: 10px 0; color: #555;}
+.price strong { font-size: 22px; color: #000; }
+.price del { font-size: 14px; color: #aaa; margin-right: 8px; }
+.installments { font-size: 13px; color: #1a7e28; margin-bottom: 10px;}
+.stock { font-size: 12px; color: #ff5e00; margin-bottom: 15px; }
+
+/* Botones */
+.btn-buy { width: 100%; padding: 12px; border: none; background: #222; color: white; cursor: pointer; text-transform: uppercase; font-size: 14px; font-weight:bold; }
+.btn-buy:hover { background: #444; }
+
+/* Popup modal 15% Descuento */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7); display: none; align-items: center; justify-content: center; z-index: 100;
+}
+.modal-content { background: white; padding: 40px; text-align: center; border-radius: 5px; width: 450px; position: relative;}
+.close-btn { position: absolute; top: 15px; right: 15px; background: transparent; border: none; font-size: 18px; cursor: pointer;}
+.modal-content h2 { margin-bottom: 10px; color:#222; font-size:28px;}
+.modal-content input { width: 100%; padding: 12px; margin: 20px 0; border: 1px solid #ccc; font-size: 16px;}
+.btn-suscribe { width: 100%; padding: 12px; background: #cba862; color: #fff; font-size: 16px; border: none; cursor: pointer; text-transform:uppercase; font-weight:bold;}
+
+/* Footer Políticas */
+footer { display: flex; flex-direction: column; background: #222; color: white; margin-top: 50px; padding-top: 40px; }
+.footer-columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 40px 40px;}
+.footer-col h3 { margin-bottom: 15px; font-size: 20px;}
+.footer-col p { font-size: 14px; line-height: 1.6; color: #bbb;}
+.footer-col:nth-child(2) p, .footer-col:nth-child(2) h3 { color: #222;}
+.footer-bottom { text-align: center; background: #111; padding: 15px; font-size: 14px; }
