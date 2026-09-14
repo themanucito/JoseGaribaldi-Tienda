@@ -67,3 +67,11 @@ footer { display: flex; flex-direction: column; background: #222; color: white; 
 .footer-col p { font-size: 14px; line-height: 1.6; color: #bbb;}
 .footer-col:nth-child(2) p, .footer-col:nth-child(2) h3 { color: #222;}
 .footer-bottom { text-align: center; background: #111; padding: 15px; font-size: 14px; }
+
+/* Acabados del Texto Ficha Técnica Producto Luxury */
+.info-highticket { margin: 15px 0; padding-top: 15px; border-top: 1px dashed #e1e1e1;}
+.product-descripcion { font-size: 13.5px; color: #444; line-height: 1.5; font-style: italic; margin-bottom: 12px; display:-webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow:hidden;}
+.specs-lista { list-style: none; margin: 0; padding: 0; }
+.specs-lista li { font-size: 11.5px; color: #666; padding-bottom: 7px; border-bottom: 1px solid #f6f6f6; line-height: 1.4; margin-bottom: 7px;}
+.specs-lista li:last-child { border: none;}
+.specs-lista li strong { color: #111; font-weight:600;}
