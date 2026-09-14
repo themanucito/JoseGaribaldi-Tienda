@@ -208,53 +208,72 @@ const productosDB = [
 
 const galleryGrid = document.getElementById("gallery");
 
-function renderProductos() {
+// La antigua no podía buscar, esta recibe datos filtrados
+function renderProductos(listado = productosDB) {
     let html = "";
-    productosDB.forEach(prod => {
+
+    // Mensaje si no encuentran nada
+    if(listado.length === 0) {
+        galleryGrid.innerHTML = "<h3 style='text-align:center; grid-column:1/-1; margin:40px; color:#777;'>🔍 No se encontraron obras con ese término.</h3>";
+        return;
+    }
+
+    listado.forEach(prod => {
         let tachado = prod.precioOriginal !== prod.precioOferta ? `<del>$${prod.precioOriginal}</del>` : "";
-        let frágilHTML = prod.esFragil ? `<span class="badge badge-fragil">FRÁGIL - Embalaje Súper VIP</span>` : "";
+        let frágilHTML = prod.esFragil ? `<span class="badge badge-fragil">FRÁGIL - VIP</span>` : "";
         
-        // Toda la belleza del catálogo High-Ticket, sus listas e interfaces de amazon (Carruseles Botones Fotos)
         html += `
         <div class="product-card">
             ${frágilHTML}
             <div class="foto-carrusel">
-                <!-- Se jalará en automatico del url que pegues 1 primero siempre, no hay q cambiar html base nunca aca abajo eh!-->
                 <img id="img-${prod.id}" src="${prod.fotos[0] || 'https://via.placeholder.com/300'}" alt="${prod.nombre}" loading="lazy">
             </div>
 
-            <!-- Carrusel Inteligente -->
             <div class="carrousel-brief-buttons">
-               <button onclick="cambiarF(${prod.id}, '${prod.fotos[0]}')" title="1. Frente Estudio">Frente</button>
-               <button onclick="cambiarF(${prod.id}, '${prod.fotos[1]}')" title="2. Detalle Macro">Textura</button>
-               <button onclick="cambiarF(${prod.id}, '${prod.fotos[2]}')" title="3. Angulo / Borde">Volumen</button>
-               <button onclick="cambiarF(${prod.id}, '${prod.fotos[3]}')" title="4. Ambiente (Foto Vendedora)">Estudio VIP</button>
+               <button onclick="cambiarF(${prod.id}, '${prod.fotos[0]}')" title="1. Frente">Frente</button>
+               <button onclick="cambiarF(${prod.id}, '${prod.fotos[1]}')" title="2. Macro">Textura</button>
+               <button onclick="cambiarF(${prod.id}, '${prod.fotos[2]}')" title="3. Borde">Volumen</button>
+               <button onclick="cambiarF(${prod.id}, '${prod.fotos[3]}')" title="4. VIP">Estudio VIP</button>
             </div>
             
             <p class="category">${prod.categoria}</p>
             <h3>${prod.nombre}</h3>
-            
             <p class="price">${tachado} <strong>$${prod.precioOferta} USD</strong></p>
             <p class="installments">💳 Opción ${prod.cuotas.meses} Pagos mensuales de <strong>$${prod.cuotas.pagoMensual.toFixed(2)}</strong></p>
             
-            <!-- EXCLUSIVIDAD DE CADA OBRA  - LO ESCRITO IMPORTA.-->
              <div class="info-highticket">
                 <p class="product-descripcion">${prod.descripcion}</p>
                 <ul class="specs-lista">
                     <li>📐 <strong>Dimensión Físicas:</strong> ${prod.dimensiones.alto} Al x ${prod.dimensiones.ancho} An x ${prod.dimensiones.profundidad} Prof (${prod.dimensiones.unidad}).</li>
-                    <li>🧱 <strong>Calidad Material y Armado:</strong> ${prod.materiales.tipo}. <br>⚖️ Pesando Físico Real : ${prod.materiales.peso} aprx</li>
-                    <li>💎 <strong>Conservaciones y Tips :</strong> ${prod.cuidados}</li>
-                    <li>🚚 <strong>Políticas Coberturas Flete y Seguros Logísticas de envios Especializado Casa Garibaldi: </strong> <span style="color:#d49b51;font-weight:600;"> ${prod.costoEnvio} </span></li>
-                    <li>🔢 Piezas de catálogo físico (Stock de Reserva Bodega): Únicamente [ ${prod.stock} Restantes ].</li>
+                    <li>🧱 <strong>Calidad Material y Armado:</strong> ${prod.materiales.tipo}. <br>⚖️ Peso: ${prod.materiales.peso} aprx</li>
+                    <li>💎 <strong>Conservación:</strong> ${prod.cuidados}</li>
+                    <li>🚚 <strong>Flete:</strong> <span style="color:#d49b51;font-weight:600;"> ${prod.costoEnvio} </span></li>
+                    <li>🔢 <strong>Stock:</strong> Únicamente [ ${prod.stock} Restantes ].</li>
                 </ul>
             </div>
-            
-            <button class="btn-buy" onclick="comprarPorWhatsApp(${prod.id})">📲 SOLICITARLA CON ASESOR EN CHAT.</button>
+            <button class="btn-buy" onclick="comprarPorWhatsApp(${prod.id})">📲 CONSULTAR CON ASESOR EN CHAT.</button>
         </div>`;
     });
     galleryGrid.innerHTML = html;
 }
 
+// ==== LA MAGIA DEL BUSCADOR EN VIVO ==== //
+const barraBuscador = document.getElementById("buscadorProductos");
+if(barraBuscador){
+    barraBuscador.addEventListener("keyup", (evento) => {
+        let textoEscrito = evento.target.value.toLowerCase();
+        
+        // Filtra comparando lo que escriben con nombres, categoría o la palabra de material de obra
+        let resultadosFiltrados = productosDB.filter(producto => {
+            return producto.nombre.toLowerCase().includes(textoEscrito) ||
+                   producto.categoria.toLowerCase().includes(textoEscrito) ||
+                   producto.descripcion.toLowerCase().includes(textoEscrito);
+        });
+
+        // Imprime el nuevo catálogo solo con lo encontrado
+        renderProductos(resultadosFiltrados);
+    });
+}
 // ==== Funcion Para el Efecto MAGICA del foto Botones  ======// 
 function cambiarF(idItem, nuevaURL) {
     if(nuevaURL && nuevaURL !== "undefined") {

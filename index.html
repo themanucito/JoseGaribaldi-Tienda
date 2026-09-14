@@ -5,69 +5,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>José Garibaldi | Galería, Arte y Decoración</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Popup de 15% Descuento modificado -->
-<div id="popupApertura" class="modal-overlay">
-    <div class="modal-content">
-        <button class="close-btn" onclick="cerrarPopup()">X</button>
-        <h2>¡Apertura Especial José Garibaldi!</h2>
-        <p>Déjanos tu correo y recibe un <strong>15% DE DESCUENTO</strong> en tu primera obra.</p>
-        <input type="email" id="emailCliente" placeholder="ejemplo@correo.com">
-        <button class="btn-suscribe" id="btnGuardarEmail">¡Quiero mi 15% Off!</button>
+    <!-- Popup de 15% Descuento (Manteniendo nuestra base de marketing) -->
+    <div id="popupApertura" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-btn" onclick="cerrarPopup()">X</button>
+            <h2>¡Apertura Especial José Garibaldi!</h2>
+            <p>Déjanos tu correo y recibe un <strong>15% DE DESCUENTO</strong> en tu primera obra.</p>
+            <input type="email" id="emailCliente" placeholder="ejemplo@correo.com">
+            <button class="btn-suscribe" id="btnGuardarEmail">¡Quiero mi 15% Off!</button>
+        </div>
     </div>
-</div>
 
-
-    <!-- Navegación -->
+    <!-- === MENÚ CORPORATIVO REQUERIDO === -->
     <nav class="navbar">
-        <div class="logo">JOSÉ GARIBALDI</div>
+        <div class="logo-box">
+            <!-- Espacio si a futuro subes una imagen del Logo. Por ahora en Letra Elegante -->
+            <div class="logo">JOSÉ GARIBALDI</div>
+            <p class="slogan-nav">Arte que transforma espacios.</p>
+        </div>
         <ul class="nav-links">
-            <li><a href="#">Arte y Cuadros</a></li>
-            <li><a href="#">Esculturas</a></li>
-            <li><a href="#">Colección Alta Gana</a></li>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#tienda">Tienda</a></li>
+            <li><a href="#contacto">Contacto</a></li>
         </ul>
     </nav>
 
-    <!-- Header Promocional -->
-    <header class="hero">
-        <div class="hero-text">
-            <h1>Arte que transforma espacios.</h1>
-            <p>Piezas exclusivas con envíos de alta seguridad.</p>
-        </div>
-    </header>
+    <!-- === SECCIÓN: INICIO (Portada y Testimonios) === -->
+    <section id="inicio">
+        <header class="hero">
+            <div class="hero-text">
+                <h1>Arte y Decoración Exclusiva</h1>
+                <p>Especialistas en la transformación visual del espacio moderno a través de la élite de materiales decorativos.</p>
+                <a href="#tienda" class="btn-golden">Explorar Colección</a>
+            </div>
+        </header>
 
-    <!-- Grid de 15 Productos (Aquí se insertará el Javascript) -->
-    <main>
-        <h2 class="title-section">Nuestro Catálogo Exclusivo</h2>
+        <!-- Testimonios VIP -->
+        <div class="testimonios-container">
+            <h2>Nuestros Clientes Dicen:</h2>
+            <div class="cards-testimonios">
+                <div class="t-card">
+                    <p class="stars">★★★★★</p>
+                    <p class="quote">"El Busto Clásico es ahora el protagonista de mi despacho corporativo en Polanco. Atención impecable desde el primer mensaje hasta el cuidadoso empacado VIP al recibir."</p>
+                    <p class="author">- Carlos D. | Socio Fundador (Cliente Verificado)</p>
+                </div>
+                <div class="t-card">
+                    <p class="stars">★★★★★</p>
+                    <p class="quote">"Total confianza. Tuve mis miedos de enviar los fondos para los Espejos 'Sol', pero ver que aceptaron video de Unboxing me dio tanta seguridad que compré sin pensarlo."</p>
+                    <p class="author">- Arq. Mónica H. | Firma de Interiorismo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECCIÓN: NOSOTROS (Visión, Valores e info Empresa) === -->
+    <section id="nosotros">
+        <div class="info-grid">
+            <div class="img-nosotros">
+                <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd647466?w=600&h=800&fit=crop" alt="Sobre nuestra empresa">
+            </div>
+            <div class="text-nosotros">
+               
+                <h2>Nuestro Legado</h2>
+                <br>
+                <h3>📜 Misión</h3>
+                <p>Elevar la estética habitacional y corporativa proporcionando objetos artísticos selectos y servicios de suprema calidad, llevando a cada puerta no un simple decorado, sino lujo escultórico, histórico y puro con garantía.</p>
+                
+                <h3>👁️ Visión</h3>
+                <p>Consolidarnos como el escaparate número 1 en Latinoamérica para decoración residencial High-Ticket, superando siempre la frágil cadena de suministro con nuestros cuidados de envío "White Glove".</p>
+                
+                <h3>💎 Valores Organizacionales</h3>
+                <ul>
+                    <li><strong>1. Exigencia Curatorial:</strong> Obras, cuadros y mobiliarios bajo estricto diseño atemporal.</li>
+                    <li><strong>2. Servicio Íntegro y Seguro:</strong> Logística invulnerable. Llegada a puerto en total integridad garantizada.</li>
+                    <li><strong>3. Discreción para Élites:</strong> Atención 1-a-1 especializada.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECCIÓN: SERVICIOS === -->
+    <section id="servicios">
+        <h2 class="title-section">Servicios Corporativos Garibaldi</h2>
+        <div class="services-wrapper">
+            <div class="service-box">
+                <h3>Venta y Curaduría Personalizada </h3>
+                <p>Orientación vía WhatsApp (Interioristas / Personal del Cliente), en selecciones ideales bajo estudios rápidos a fotografías del muro meta provistas a nuestra compañía para armonías asombrosas y exclusivas.</p>
+            </div>
+            <div class="service-box">
+                <h3>Fabricaciones Específicas In-Situ</h3>
+                <p>Para aquellos murales gigantes XXL o mobiliarios no publicables del store. Los gestionamos presencial en obra bajo plano mediante arquitecto gestor, llaves y finiquito 1 a 1 para asegurar majestuosidad instalada, para proyectos corporativos completos.</p>
+            </div>
+            <div class="service-box">
+                <h3>Cobertura a Daños 100% Ciega</h3>
+                <p>¿Tensión a que un Cristal estalle o Arte se desbarate viajando cientos kms? La Promesa corporativa a 1500 USD es simple y superior al retail, Enfoque continuo Grabado ininterrumpidamente; Si abre usted el paquete destrozado enviamos nueva reposición del Taller inmediato a Costes nuestros totales .</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECCIÓN: TIENDA === -->
+    <section id="tienda">
+        <h2 class="title-section" style="padding-top:20px;">Galería Exclusiva 2026</h2>
+        
+        <!-- Tu barrita buscadora -->
+        <div class="search-container">
+            <input type="text" id="buscadorProductos" placeholder="🔍 Buscar cuadros, espejos, colecciones especiales...">
+        </div>
+        
+        <!-- Y la base a que los js pegarán tu magico local completo, largo o corto-->
         <div id="gallery" class="gallery-container"></div>
-    </main>
+    </section>
 
-    <!-- Políticas de Compra High-Ticket -->
-    <footer>
-        <div class="footer-columns">
-            <div class="footer-col">
-                <h3>Pagos a Tu Medida</h3>
-                <p>Las obras de arte y muebles son grandes decisiones. Paga desde 3 hasta 12 meses en nuestra web (según producto). Hacemos la belleza más accesible.</p>
-            </div>
-            <div class="footer-col" style="background:#f4f4f4; padding: 15px; border-radius: 8px;">
-                <h3>🔴 POLÍTICA DE SEGURO POR DAÑO FRÁGIL</h3>
-                <p><strong>Nuestros espejos, estatuas y cuadros viajan súper seguros.</strong> Si por motivos de transporte tu espejo llega roto: <br><br><i> Toma un VIDEO ininterrumpido abriendo la caja al momento de recibirlo. Si el producto se encuentra dañado desde dentro del embalaje, **te enviaremos una pieza nueva sin ningún costo ni preguntas.**</i></p>
-            </div>
-            <div class="footer-col">
-                <h3>Síguenos en Redes</h3>
-                <p>Inspiración de decoración: Instagram (@josegaribaldi) & Pinterest.<br>Detrás de escena, empaque y taller en: TikTok.</p>
-            </div>
+    <!-- === SECCIÓN: CONTACTO === -->
+    <section id="contacto" class="contacto-footer">
+        <div class="contact-card">
+            <h2>Póngase en Contacto con la Firma</h2>
+            <p>Ya sea negocios a por mayores corporativos hoteleros o detalles a casa habitacion. Las puertas abiertas por siempre; escríbanos.</p>
+           
         </div>
+    </section>
+
+    <footer>
         <div class="footer-bottom">
-            <p>&copy; 2026 José Garibaldi. Todos los derechos reservados.</p>
+            <p>&copy; 2026 <strong>JOSÉ GARIBALDI INTERIORES CORP.</strong> | Administrado Oficial - Todos los derechos y distribuciones legales registradas e Intelecuadas.</p>
         </div>
     </footer>
 
-    <!-- Firebase -->
+    <!-- Firebase Scripts de Registro y Botones-->
     <script src="app.js"></script>
     <script type="module" src="firebase.js"></script>
+
+    <!-- Scrip de suavizado Scroll links VIP: (Te mueve suave en lugar un duro salto visual web normalita)-->
+    <script>
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+      });
+    </script>
 </body>
 </html>
