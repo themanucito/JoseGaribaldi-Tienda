@@ -1,4 +1,12 @@
-
+// Quitar Pantalla de carga (Preloader) con estilo
+window.addEventListener("load", function() {
+    setTimeout(function() {
+        let loader = document.getElementById("preloader-vip");
+        if(loader){
+            loader.classList.add("preloader-oculto");
+        }
+    }, 1200); // 1.2 Segundos de fama dorada para tu nombre al abrir la web
+});
 
 // --- COMIENZA app.js (VERSIÓN DEFINITIVA DE STOCK REAL) ---
 

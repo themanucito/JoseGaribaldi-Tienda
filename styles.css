@@ -8,10 +8,31 @@ body {
 h1, h2, h3, .logo { font-family: 'Playfair Display', serif; }
 
 /* Barra superior */
+/* ---- MENU EFECTO CRISTAL FLOTANTE "BACÁN" ---- */
 .navbar {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 20px 40px; background-color: #111; color: #fff;
+    position: sticky;  /* Hace que el menú te persiga hacia abajo */
+    top: 0;
+    z-index: 1000;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 15px 40px; 
+    
+    /* El truco del cristal difuminado (Apple style) */
+    background-color: rgba(17, 17, 17, 0.85); 
+    backdrop-filter: blur(12px); /* Desenfoca el fondo cuando haces scroll */
+    -webkit-backdrop-filter: blur(12px); 
+    
+    color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
 }
+/* Efectos sutiles al poner el mouse sobre el menú */
+.nav-links a { color: #fff; text-decoration: none; text-transform: uppercase; font-size: 13px; font-weight: bold; letter-spacing: 1px; transition: 0.3s; }
+.nav-links a:hover { color: #cba862; } /* Se pintan doraditos al señalarlos */
+
+
 .logo { font-size: 26px; font-weight: bold; letter-spacing: 2px; }
 .nav-links { display: flex; list-style: none; gap: 20px; }
 .nav-links a { color: #fff; text-decoration: none; text-transform: uppercase; font-size: 14px;}
@@ -153,3 +174,108 @@ section {
 .contact-card ul { list-style: none; text-align:left;}
 .contact-card ul li { color: #ddd; font-size: 14.5px; margin-bottom:15px; border-bottom: 1px solid #444; padding-bottom:12px; }
 .footer-bottom { background:#0a0a0a; color:#555; text-align:center; padding:15px; font-size: 13px;}
+
+/* ---- EFECTO DE HOVER VIP Y FLOTANTE EN TARJETAS ---- */
+.product-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Rebote matemático elegantísimo */
+    border: 1px solid transparent;
+}
+.product-card:hover {
+    transform: translateY(-12px) scale(1.02); /* Se levanta del suelo un poco */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08); /* Proyecta gran sombra 3D */
+    border-color: #cba862; /* Le da un borde brillante sutil dorado */
+}
+/* Mejora en el Botón Negro (Cambia de oscuro al Dorado) */
+.btn-buy { 
+    transition: all 0.3s ease; 
+    background: linear-gradient(135deg, #111, #333); /* Fondo oscuro degradado liso */
+}
+.btn-buy:hover { 
+    background: linear-gradient(135deg, #cba862, #947231); /* Dorado iluminado! */
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 15px rgba(203, 168, 98, 0.4); /* Resplandor dorado VIP */
+}
+
+/* ---- SCROLL MÁGICO AL BAJAR ---- */
+.reveal {
+    opacity: 0;
+    transform: translateY(60px); /* Bajan el elemento un poquito y lo hacen transparente */
+    transition: all 0.8s ease-out; /* Velocidad lenta y carísima de la transición */
+}
+.reveal.active {
+    opacity: 1; /* Cuando bajas la pantalla, aparecen suavemente a la perfección */
+    transform: translateY(0);
+}
+
+/* ---- SCROLLBAR VIP (Barra de la derecha del navegador dorada) ---- */
+::-webkit-scrollbar {
+    width: 8px; /* Bien finita y elegante */
+}
+::-webkit-scrollbar-track {
+    background: #111; /* Fondo oscuro */
+}
+::-webkit-scrollbar-thumb {
+    background: #cba862; /* Oro José Garibaldi */
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #fff;
+}
+
+/* ---- PANTALLA DE CARGA CINEMATOGRÁFICA ---- */
+#preloader-vip {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100vh;
+    background: #0d0d0d;
+    z-index: 9999;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    transition: opacity 1.2s ease, visibility 1.2s ease;
+}
+.logo-preloader {
+    color: #cba862;
+    font-size: 30px; letter-spacing: 5px;
+    animation: palpitar 2s infinite ease-in-out;
+}
+#preloader-vip p { color: #666; font-size: 11px; margin-top: 10px; letter-spacing: 3px;}
+
+@keyframes palpitar {
+    0% { opacity: 0.4; transform: scale(0.98);}
+    50% { opacity: 1; transform: scale(1);}
+    100% { opacity: 0.4; transform: scale(0.98);}
+}
+/* Esta clase se agrega con JS para que desaparezca elegante */
+.preloader-oculto { opacity: 0; visibility: hidden; }
+
+/* ---- PARALLAX HERO 3D (Solo debes buscar donde estaba tu viejo .hero y cambiarlo por este o pegarlo acá al fondo pisándolo) ---- */
+.hero {
+    height: 450px; 
+    display: flex; align-items: center; justify-content: center;
+    background: url('https://images.unsplash.com/photo-1543884175-9c8a0058b761?w=1600&h=800&fit=crop') center/cover;
+    /* La Magia 3D: */
+    background-attachment: fixed; 
+    color: white; text-align: center;
+}
+
+/* ---- BURBUJA WHATSAPP DE CONSERJERÍA FLOTANTE ---- */
+.wpp-flotante {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 14px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(37,211,102,0.4);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+.wpp-flotante:hover {
+    background-color: #128C7E;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(37,211,102,0.6);
+}

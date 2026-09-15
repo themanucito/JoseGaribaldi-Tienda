@@ -9,6 +9,12 @@
 </head>
 <body>
 
+    <!-- 1. Pantalla de Carga VIP (Preloader) -->
+    <div id="preloader-vip">
+        <h1 class="logo-preloader">JOSÉ GARIBALDI</h1>
+        <p>PREPARANDO CATÁLOGO...</p>
+    </div>
+
     <!-- Popup de 15% Descuento (Manteniendo nuestra base de marketing) -->
     <div id="popupApertura" class="modal-overlay">
         <div class="modal-content">
@@ -37,7 +43,7 @@
     </nav>
 
     <!-- === SECCIÓN: INICIO (Portada y Testimonios) === -->
-    <section id="inicio">
+    <section id="inicio" class="reveal">
         <header class="hero">
             <div class="hero-text">
                 <h1>Arte y Decoración Exclusiva</h1>
@@ -65,7 +71,7 @@
     </section>
 
     <!-- === SECCIÓN: NOSOTROS (Visión, Valores e info Empresa) === -->
-    <section id="nosotros">
+    <section id="nosotros" class="reveal">
         <div class="info-grid">
             <div class="img-nosotros">
                 <img src="https://images.unsplash.com/photo-1600607688969-a5bfcd647466?w=600&h=800&fit=crop" alt="Sobre nuestra empresa">
@@ -91,7 +97,7 @@
     </section>
 
     <!-- === SECCIÓN: SERVICIOS === -->
-    <section id="servicios">
+    <section id="servicios" class="reveal">
         <h2 class="title-section">Servicios Corporativos Garibaldi</h2>
         <div class="services-wrapper">
             <div class="service-box">
@@ -110,7 +116,7 @@
     </section>
 
     <!-- === SECCIÓN: TIENDA === -->
-    <section id="tienda">
+    <section id="tienda" class="reveal">
         <h2 class="title-section" style="padding-top:20px;">Galería Exclusiva 2026</h2>
         
         <!-- Tu barrita buscadora -->
@@ -123,7 +129,7 @@
     </section>
 
     <!-- === SECCIÓN: CONTACTO === -->
-    <section id="contacto" class="contacto-footer">
+    <section id="contacto" class="reveal" class="contacto-footer">
         <div class="contact-card">
             <h2>Póngase en Contacto con la Firma</h2>
             <p>Ya sea negocios a por mayores corporativos hoteleros o detalles a casa habitacion. Las puertas abiertas por siempre; escríbanos.</p>
@@ -136,6 +142,11 @@
             <p>&copy; 2026 <strong>JOSÉ GARIBALDI INTERIORES CORP.</strong> | Administrado Oficial - Todos los derechos y distribuciones legales registradas e Intelecuadas.</p>
         </div>
     </footer>
+
+    <!-- 2. Burbuja de WhatsApp Flotante -->
+    <a href="https://wa.me/51943971911?text=Hola,%20busco%20asesoría%20personalizada%20VIP" target="_blank" class="wpp-flotante" title="Asesoría VIP">
+        💬 Asesor Personal
+    </a>
 
     <!-- Firebase Scripts de Registro y Botones-->
     <script src="app.js"></script>
@@ -152,5 +163,28 @@
         });
       });
     </script>
+<!-- Script Aparición Suave por Bloques  -->
+    <script>
+      window.addEventListener('scroll', reveal);
+      
+      function reveal() {
+          var reveals = document.querySelectorAll('.reveal');
+          for (var i = 0; i < reveals.length; i++) {
+              var windowHeight = window.innerHeight;
+              var revealTop = reveals[i].getBoundingClientRect().top;
+              var revealPoint = 100; // Inicia 100 px antes de verlo
+              
+              if (revealTop < windowHeight - revealPoint) {
+                  reveals[i].classList.add('active');
+              }
+          }
+      }
+      
+      // Lanzamos la función 1 vez cuando alguien abre la página web.
+      setTimeout(() => { reveal(); }, 200); 
+    </script>
+</body>
+</html>
+
 </body>
 </html>
